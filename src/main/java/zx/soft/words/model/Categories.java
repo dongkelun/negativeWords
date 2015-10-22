@@ -6,6 +6,24 @@ public class Categories {
 	private String name;
 	private String type;
 	
+	 
+	public Categories() {
+		super();
+	}
+
+	public Categories(int cate_id, String name, String type) {
+		super();
+		this.cate_id = cate_id;
+		this.name = name;
+		this.type = type;
+	}
+	
+	public Categories(String name, String type) {
+		super();
+		this.name = name;
+		this.type = type;
+	}
+
 	public int getCate_id() {
 		return cate_id;
 	}

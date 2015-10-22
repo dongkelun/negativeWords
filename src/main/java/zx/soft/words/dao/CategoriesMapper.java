@@ -14,7 +14,7 @@ public interface CategoriesMapper {
 	/**
 	 * 添加单个类别
 	 */
-	@Insert("insert into `categories` (`name`) values ( #{name} )")
+	@Insert("insert into `categories` (`cate_id`,`name`,`type`) values (#{cate_id}, #{name},#{type})")
 	public void addCategoory(Categories categories);
 	
 	/**
@@ -24,21 +24,21 @@ public interface CategoriesMapper {
 	public void delCategory(int cate_id);
 	
 	/**
-	 * 按照name查询
+	 * 按照type 和 name查询 
 	 */
-	@Select("select * from `categories` where name = #{name}")
+	@Select("select * from `categories` where type = #{type} and name = #{name}")
 	public List<Categories> checkCategories(Categories categories);
 	
 	/**
-	 * 查询所有类别
+	 * 查询每个城市的所有类别
 	 */
-	@Select("select * from `categories` ORDER BY cate_id DESC ")
-	public List<Categories> getCategories();
+	@Select("select * from `categories` where type = #{type} ORDER BY cate_id DESC ")
+	public List<Categories> getCategories(String type);
 	
 	/**
 	 * 修改单个类别
 	 */
-	@Update("update `categories` set name = #{name} where cate_id = #{cate_id}")
+	@Update("update `categories` set name = #{name},type=#{type} where cate_id = #{cate_id}")
 	public void updateCategory(Categories categories);
 
 }

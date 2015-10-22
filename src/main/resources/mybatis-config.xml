@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<properties resource="jdbc.properties" />
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${words.jdbc.driverClassName}" />
+				<property name="url" value="${words.jdbc.url}" />
+				<property name="username" value="${words.jdbc.username}" />
+				<property name="password" value="${words.jdbc.password}" />
+				<property name="driver.encoding" value="UTF8" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<package name="zx.soft.words.dao" />
+	</mappers>
+</configuration>
